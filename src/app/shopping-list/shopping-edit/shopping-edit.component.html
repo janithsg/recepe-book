@@ -1,3 +1,26 @@
-<p>
-  shopping-edit works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onAddItem(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input type="text" id="namee" name="name" ngModel class="form-control" required>
+        </div>
+        <div class="col-xs-2 form-group">
+          <label for="amount">amount</label>
+          <input type="number" id="amounte" name="amount" ngModel class="form-control" required pattern="^[1-9]+[0-9]*$">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid"> {{editMode ? 'Update' :'Add'}}</button>
+          <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode"> Delete Item</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

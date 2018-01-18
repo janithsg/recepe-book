@@ -1,0 +1,14 @@
+.card{
+    color: #fff;
+}
+
+h4{
+    color:rgb(235, 211, 3);
+    
+}
+
+#detailDiv{
+    border: 1px solid ;
+    border-radius: 5px;
+    padding: 5px;
+}

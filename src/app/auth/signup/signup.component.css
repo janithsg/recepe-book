@@ -1,0 +1,15 @@
+.signup{
+    background-color: rgba(31, 28, 28, 0.95);
+    padding: 10px 15px 45px 15px;
+
+    border-radius: 7px;
+    color: #fff;
+}
+
+button{
+    width: 100%;
+}
+
+h2{
+    color: rgb(245, 203, 17);
+}

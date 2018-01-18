@@ -1,3 +1,80 @@
-<p>
-  recipe-edit works!
-</p>
+<div class="row "  id="detailDiv" >
+  <div class="col-xs-12">
+
+
+
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <!--synchronize with the html form/// formGroup is a directive-->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="nameIn" formControlName="name">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">image Url</label>
+            <input type="text" class="form-control" id="imagePath" formControlName="imagePath" #imgPath> <!--#imgPath is a reference. it is added to the src property in next input-->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imgPath.value" class="img-responsive" >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" rows="6" id="description" formControlName="description"> </textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        
+        <div class="col-xs-12" formArrayName="ingredients">
+          <!--add form array-->
+
+          <div class="row" *ngFor="let ingredientCntrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i"
+            style="margin-top:10px">
+            <!--iterate all the ingredient objects-->
+            <div class="col-xs-7"  >
+              <input type="text" class="form-control" formControlName="name" Vali >
+            </div>
+            <div class="col-xs-3">
+              <input type="number" class="form-control" formControlName="amount">
+            </div>
+            <div class="col-xs-2">
+              <button class="btn btn-danger" (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-success" (click)="onAddIngredient()" type="button">Add Ingredients</button>
+              <button type="submit" class="btn btn-success" [disabled]= "!recipeForm.valid">Save</button>
+              <button type="button" class="btn btn-danger" (click) ="onCancel()">Cancel</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </form>
+
+
+
+    
+  </div>
+</div>

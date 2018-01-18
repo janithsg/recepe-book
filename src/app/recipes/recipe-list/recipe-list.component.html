@@ -1,3 +1,17 @@
-<p>
-  recipe-list works!
-</p>
+<ng-template [ngIf] = "authService.isAuthenticated()">
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn btn-success" (click) ="onNewRecipe()">New Recipe</div>
+    </div>
+  </div>
+  <hr>
+  
+  </ng-template>
+  
+  <h1 id ="headH">Latest Recipe List</h1>
+  <br>
+  
+  <div class="row">
+      <app-recipe-item *ngFor="let recipeEl of recipes; let i = index "  [recipe] ="recipeEl" [index] = "i" > </app-recipe-item>
+  </div>
